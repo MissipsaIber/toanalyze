@@ -1,0 +1,27 @@
+/* You can add global styles to this file, and also import other style files */
+
+@use "@angular/material" as mat;
+@import "./src/assets/styles/_class";
+@import "./src/assets/styles/_form";
+
+@import "./src/assets/styles/theme";
+// Theme Init
+@include mat.all-component-themes($subscription-theme);
+// Theme Dark
+.theme-dark {
+    @include mat.all-component-themes($subscription-dark-theme);
+}
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+}
+
+.spacer {
+    width: 100%;
+}
+

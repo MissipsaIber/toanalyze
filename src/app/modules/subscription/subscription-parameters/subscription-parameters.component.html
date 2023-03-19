@@ -1,0 +1,37 @@
+<mat-card>
+    <mat-card-header>
+      <mat-card-title>Select Subscription Parameters</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <form [formGroup]="subscriptionForm">
+        <div >
+          <mat-form-field appearance="outline" class="form-field">
+              <mat-label>Subscription duration (Months):</mat-label>
+              <mat-select formControlName="duration">
+                <mat-option *ngFor="let plan of subscriptionPlans"
+                [value]="plan.duration_months">{{ plan.duration_months }} months</mat-option>
+              </mat-select>
+              <mat-error *ngIf="subscriptionForm.get('duration')?.hasError('required')">Duration is required</mat-error>
+
+            </mat-form-field>
+          <mat-form-field appearance="outline" class="form-field">
+            <mat-label>Amount of gigabytes(GB):</mat-label>
+            <mat-select formControlName="storage">
+              <mat-option *ngFor="let storage of storageOptions" [value]="storage">{{storage}}  GB</mat-option>
+            </mat-select>
+            <mat-error *ngIf="subscriptionForm.get('storage')?.hasError('required')">Storage is required</mat-error>
+          </mat-form-field>
+
+          <mat-checkbox class="form-field" formControlName="upfrontPayment">Upfront payment (10% discount)</mat-checkbox>
+          <div class="button-container" >
+              <button mat-flat-button color="primary" type="button" (click)="next()" [disabled]="!subscriptionForm.valid">Next</button>
+            </div>
+        </div>
+      </form>
+
+    </mat-card-content>
+  </mat-card>
+
+
+
+

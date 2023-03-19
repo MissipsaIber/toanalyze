@@ -1,0 +1,18 @@
+
+  mat-form-field,
+  label {
+    display: block;
+  }
+
+  label+h2 {
+    margin-top: 1em;
+  }
+
+  h2 mat-radio-group {
+    font-size: 1rem;
+
+    mat-radio-button {
+      margin-right: 1em;
+    }
+  }
+

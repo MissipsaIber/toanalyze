@@ -1,0 +1,31 @@
+<mat-tab-group
+#tabGroup
+aria-disabled="true"
+[selectedIndex]="selectedIndex"
+disabled
+>
+<mat-tab aria-label="parameters" [disabled]="activeTab !== 'parameters'">
+  <ng-template mat-tab-label>
+    <span matTooltip="Subscription parameters">
+      Subscription Parameters
+    </span>
+  </ng-template>
+  <app-subscription-parameters (actionStat)="handleTabChange($event)"></app-subscription-parameters>
+</mat-tab>
+<mat-tab aria-label="payment" [disabled]="activeTab !== 'payment'">
+  <ng-template mat-tab-label>
+    <span matTooltip="Subscription payment data"
+      >Subscription Payment</span
+    >
+  </ng-template>
+  <app-payment-data (actionStat)="handleTabChange($event)"></app-payment-data>
+</mat-tab>
+<mat-tab aria-label="confirmation" [disabled]="activeTab !== 'confirmation'">
+  <ng-template mat-tab-label>
+    <span matTooltip="subscription confirmation">
+      Subscription Confirmation
+    </span>
+  </ng-template>
+  <app-subscription-confirmation *ngIf="activeTab == 'confirmation'" (actionStat)="handleTabChange($event)"></app-subscription-confirmation>
+</mat-tab>
+</mat-tab-group>
